@@ -1,4 +1,5 @@
 import chromium from '@sparticuz/chromium';
+import path from 'path';
 import nodemailer from 'nodemailer';
 import puppeteer from 'puppeteer-core';
 
@@ -238,6 +239,14 @@ async function launchBrowser() {
       'Unable to find a Chromium executable. Set PUPPETEER_EXECUTABLE_PATH for local runs.'
     );
   }
+
+  const executableDir = path.dirname(executablePath);
+  process.env.LD_LIBRARY_PATH = [
+    executableDir,
+    process.env.LD_LIBRARY_PATH
+  ]
+    .filter(Boolean)
+    .join(':');
 
   const usingCustomExecutable = Boolean(process.env.PUPPETEER_EXECUTABLE_PATH);
   const launchArgs = usingCustomExecutable
