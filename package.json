@@ -8,7 +8,7 @@
     "start": "vercel dev"
   },
   "dependencies": {
-    "@sparticuz/chromium": "^118.0.0",
+    "@sparticuz/chromium": "^141.0.0",
     "nodemailer": "^6.9.13",
     "puppeteer-core": "^19.11.1"
   },
