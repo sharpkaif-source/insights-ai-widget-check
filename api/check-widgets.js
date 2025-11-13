@@ -331,7 +331,7 @@ async function sendAlertEmail(failures, checkedAt, extraDetails = '') {
     }
   });
 
-  const subject = '⚠️ Widget Data Missing on Insights AI Dashboard';
+  const subject = '⚠️ Demo Nova Widget Data Missing on Insights AI Dashboard';
   const failureLines = failures
     .map(result => `• ${result.title} — ${result.reason}`)
     .join('\n');
