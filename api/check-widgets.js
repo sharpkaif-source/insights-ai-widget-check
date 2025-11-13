@@ -241,12 +241,20 @@ async function launchBrowser() {
   }
 
   const executableDir = path.dirname(executablePath);
-  process.env.LD_LIBRARY_PATH = [
+  const libraryDirs = [
     executableDir,
+    path.join(executableDir, 'lib'),
+    path.join(executableDir, 'swiftshader')
+  ];
+
+  process.env.LD_LIBRARY_PATH = [
+    ...libraryDirs,
     process.env.LD_LIBRARY_PATH
   ]
     .filter(Boolean)
     .join(':');
+
+  console.log('LD_LIBRARY_PATH set to', process.env.LD_LIBRARY_PATH);
 
   const usingCustomExecutable = Boolean(process.env.PUPPETEER_EXECUTABLE_PATH);
   const launchArgs = usingCustomExecutable
