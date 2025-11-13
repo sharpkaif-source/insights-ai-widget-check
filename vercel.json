@@ -1,1 +1,1 @@
-{"functions":{"api/check-widgets.js":{"includeFiles":"node_modules/@sparticuz/chromium/**/*"}}}
+{"functions":{"api/check-widgets.js":{"includeFiles":["node_modules/@sparticuz/chromium/bin/**"]}}}
